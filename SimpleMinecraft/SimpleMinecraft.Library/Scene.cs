@@ -1,8 +1,5 @@
-﻿using System;
+﻿using SimpleMinecraft.Library.SceneElements;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using SimpleMinecraft.Library.SceneElements;
 
 namespace SimpleMinecraft.Library
 {
@@ -18,6 +15,28 @@ namespace SimpleMinecraft.Library
         public bool ContainsBlock(int blockID)
         {
             return blockDictionary.ContainsKey(blockID);
+        }
+        public void LoadBlock(Block block)
+        {
+            if(!ContainsBlock(block.BlockID))
+            {
+                blockDictionary.Add(block.BlockID, block);
+            }
+        }
+        public Block InstantiateBlock(int attachedBlockID, Vector3 normal, bool isBreakable, Block blockPrefab)
+        {
+            if(ContainsBlock(attachedBlockID))
+            {
+                Block attachedBlock = blockDictionary[attachedBlockID];
+                Vector3 instantiatePoint = attachedBlock.GetInstantiatePoint(normal);
+                Block newBlock = blockPrefab.BlockGenerator(instantiatePoint, normal, isBreakable, blockPrefab);
+                LoadBlock(newBlock);
+                return newBlock;
+            }
+            else
+            {
+                return null;
+            }
         }
         public void DestroyBlock(int blockID)
         {

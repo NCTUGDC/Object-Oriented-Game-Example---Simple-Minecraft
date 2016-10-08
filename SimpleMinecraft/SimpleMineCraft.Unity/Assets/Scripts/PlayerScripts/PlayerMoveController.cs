@@ -1,16 +1,17 @@
-﻿using UnityEngine;
-using SimpleMinecraft.Unity.Scripts.SystemScripts;
+﻿using SimpleMinecraft.Unity.Scripts.SystemScripts;
+using UnityEngine;
 
 namespace SimpleMinecraft.Unity.Scripts.PlayerScripts
 {
     public class PlayerMoveController : MonoBehaviour
     {
         private Rigidbody selfRigidbody;
-        void Awake()
+        void Start()
         {
             selfRigidbody = GetComponent<Rigidbody>();
             InputManager.Instance.OnKeyDown += OnJumpKeyDown;
             InputManager.Instance.OnKeyDown += OnMoveKeyDown;
+            InputManager.Instance.OnKeyPress += OnRotateKeyPress;
             InputManager.Instance.OnKeyUp += OnMoveKeyUp;
         }
 
@@ -26,7 +27,7 @@ namespace SimpleMinecraft.Unity.Scripts.PlayerScripts
         {
             if(keyCode == KeyCode.Space)
             {
-                selfRigidbody.AddForce(new Vector3(0, 200, 0));
+                selfRigidbody.AddForce(new Vector3(0, 300, 0));
             }
         }
         void OnMoveKeyDown(KeyCode keyCode)
@@ -39,11 +40,17 @@ namespace SimpleMinecraft.Unity.Scripts.PlayerScripts
                 case KeyCode.S:
                     selfRigidbody.velocity = selfRigidbody.transform.forward * -10;
                     break;
+            }
+        }
+        void OnRotateKeyPress(KeyCode keyCode)
+        {
+            switch (keyCode)
+            {
                 case KeyCode.A:
-                    selfRigidbody.angularVelocity = new Vector3(0, -3, 0);
+                    selfRigidbody.transform.Rotate(new Vector3(0, -3, 0));
                     break;
                 case KeyCode.D:
-                    selfRigidbody.angularVelocity = new Vector3(0, 3, 0);
+                    selfRigidbody.transform.Rotate(new Vector3(0, 3, 0));
                     break;
             }
         }
@@ -57,10 +64,6 @@ namespace SimpleMinecraft.Unity.Scripts.PlayerScripts
                     velocity.x = 0;
                     velocity.z = 0;
                     selfRigidbody.velocity = velocity;
-                    break;
-                case KeyCode.A:
-                case KeyCode.D:
-                    selfRigidbody.angularVelocity = Vector3.zero;
                     break;
             }
         }
