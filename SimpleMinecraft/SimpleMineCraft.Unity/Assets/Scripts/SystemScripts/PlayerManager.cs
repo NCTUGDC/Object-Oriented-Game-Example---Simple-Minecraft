@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using SimpleMinecraft.Library;
+using SimpleMinecraft.Library.ItemElements;
 using SimpleMinecraft.Library.PlayerElements;
 using SimpleMinecraft.Unity.Scripts.UIScripts;
 
@@ -27,8 +28,10 @@ namespace SimpleMinecraft.Unity.Scripts.SystemScripts
         {
             InputManager.Instance.OnKeyDown += ToggleInventoryPanel;
 
-            Inventory.LoadItem(new InventoryItemInfo(new Item(1, "測試", ""), 5, 4));
-            Inventory.LoadItem(new InventoryItemInfo(new Item(8, "測試2", ""), 8, 12));
+            Item testBlock = new Item(1, "測試方塊", "");
+            testBlock.AddComponent(new CubeBlockMaterial(1));
+
+            Inventory.LoadItem(new InventoryItemInfo(testBlock, 50, 4));
         }
 
         private void ToggleInventoryPanel(KeyCode keycode)

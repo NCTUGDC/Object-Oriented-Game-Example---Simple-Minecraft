@@ -1,6 +1,8 @@
 ﻿using SimpleMinecraft.Library.SceneElements;
+using SimpleMinecraft.Library.ItemElements;
 using SimpleMinecraft.Unity.Scripts.SystemScripts;
 using UnityEngine;
+using System.Linq;
 
 namespace SimpleMinecraft.Unity.Scripts.PlayerScripts
 {
@@ -17,7 +19,18 @@ namespace SimpleMinecraft.Unity.Scripts.PlayerScripts
         {
             InputManager.Instance.OnMouseButtonUp += OnInstantiateBlockMouseButtonUp;
             InputManager.Instance.OnMouseButtonUp += OnDestroyBlockMouseButtonUp;
-            blockPrefab = new CubeBlock(1, new Library.Vector3(), true);
+            PlayerManager.Instance.Player.OnHoldingItemInfoChange += (info) =>
+            {
+                if(info != null && info.Item != null && info.Item.Components.Any(x => x is BlockMaterial))
+                {
+                    BlockMaterial blockMaterial = info.Item.Components.First(x => x is BlockMaterial) as BlockMaterial;
+                    blockPrefab = blockMaterial.BlockTemplate;
+                }
+                else
+                {
+                    blockPrefab = null;
+                }
+            };
 
             settingBlockGameObject = Instantiate(settingBlockGameObject);
             settingBlockGameObject.SetActive(false);
@@ -26,7 +39,7 @@ namespace SimpleMinecraft.Unity.Scripts.PlayerScripts
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitInfo;
-            if (Physics.Raycast(ray, out hitInfo))
+            if (blockPrefab != null && Physics.Raycast(ray, out hitInfo))
             {
                 Vector3 position = hitInfo.point;
                 Vector3 normal = hitInfo.normal;
@@ -50,7 +63,7 @@ namespace SimpleMinecraft.Unity.Scripts.PlayerScripts
         }
         private void OnInstantiateBlockMouseButtonUp(int mouseButton)
         {
-            if (mouseButton == 1)
+            if (blockPrefab != null && mouseButton == 1)
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hitInfo;
@@ -67,6 +80,8 @@ namespace SimpleMinecraft.Unity.Scripts.PlayerScripts
                         GameObject blockGameObject = Instantiate(blockGameObjectPrefab);
                         newBlock.BindController(blockGameObject.GetComponent<IBlockController>());
                         blockGameObject.transform.position = Vector3Convertor.Convert(newBlock.CenterPosition);
+
+                        PlayerManager.Instance.Inventory.RemoveItem(PlayerManager.Instance.Player.HoldingItemInfo.PositionIndex, 1);
                     }
                 }
             }

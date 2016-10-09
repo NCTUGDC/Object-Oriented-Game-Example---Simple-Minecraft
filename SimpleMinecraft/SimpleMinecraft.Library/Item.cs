@@ -19,17 +19,6 @@ namespace SimpleMinecraft.Library
             Description = description;
             components = new List<ItemComponent>();
         }
-        public bool Affect(List<IEffectorTarget> targets)
-        {
-            if (components.Count != 0)
-            {
-                return components.All(x => x.Affect(targets));
-            }
-            else
-            {
-                return false;
-            }
-        }
         public void AddComponent(ItemComponent component)
         {
             components.Add(component);

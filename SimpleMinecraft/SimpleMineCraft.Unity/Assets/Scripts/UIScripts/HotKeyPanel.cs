@@ -34,6 +34,7 @@ namespace SimpleMinecraft.Unity.Scripts.UIScripts
         }
         [SerializeField]
         private HotKeyInfoIcon hotKeyInfoIconPrefab;
+        private RectTransform selectedHotKeyMask;
 
         private Dictionary<KeyCode, HotKeyInfoIcon> hotKeyInfoIconDictionary;
 
@@ -44,9 +45,22 @@ namespace SimpleMinecraft.Unity.Scripts.UIScripts
         
         void Start()
         {
+            selectedHotKeyMask = transform.Find("SelectedHotKeyMask").GetComponent<RectTransform>();
+
             hotKeySet = PlayerManager.Instance.HotKeySet;
             hotKeySet.OnHotKeyInfoChange += OnSetHotKey;
             Inventory inventory = PlayerManager.Instance.Inventory;
+            PlayerManager.Instance.Player.OnHoldingItemInfoChange += (info) =>
+            {
+                if(info != null)
+                {
+                    int hotKeyIndex = info.PositionIndex - (inventory.Capacity - inventory.HotKeyCapacity);
+                    if (hotKeyIndex >= 0 && hotKeyIndex < inventory.HotKeyCapacity)
+                    {
+                        selectedHotKeyMask.anchoredPosition = new Vector2(30 + 55 * hotKeyIndex, 0);
+                    }
+                }
+            };
             inventory.OnItemChange += (info) =>
             {
                 int hotKeyIndex = info.PositionIndex - (inventory.Capacity - inventory.HotKeyCapacity);
@@ -68,6 +82,7 @@ namespace SimpleMinecraft.Unity.Scripts.UIScripts
                 float x = 30 + 55 * (i % 10);
                 iconTransform.anchoredPosition = new Vector2(x, 0);
                 icon.Initial(HotKeyDisplayInfo.HotKeyMappingTable[i].labelName);
+                icon.HotKeyInfo = new HotKeyInfo((short)HotKeyDisplayInfo.HotKeyMappingTable[i].keyCode, new InventoryItemInfo(null, 0, (inventory.Capacity - inventory.HotKeyCapacity) + i));
                 hotKeyInfoIconDictionary.Add(HotKeyDisplayInfo.HotKeyMappingTable[i].keyCode, icon);
             }
             foreach (var info in hotKeySet.HotKeyInfos)
@@ -77,6 +92,8 @@ namespace SimpleMinecraft.Unity.Scripts.UIScripts
                     hotKeyInfoIconDictionary[(KeyCode)info.HotKeyCode].HotKeyInfo = info;
                 }
             }
+            selectedHotKeyMask.SetSiblingIndex(10);
+            selectedHotKeyMask.anchoredPosition = new Vector2(30, 0);
         }
         private void OnSetHotKey(HotKeyInfo info)
         {

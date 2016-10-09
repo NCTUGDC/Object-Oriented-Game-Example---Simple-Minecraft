@@ -130,6 +130,10 @@ namespace SimpleMinecraft.Library.PlayerElements
                 itemInfos[positionIndex].Count -= count;
                 if (itemInfos[positionIndex].Count == 0)
                 {
+                    if(Owner.HoldingItemInfo == itemInfos[positionIndex])
+                    {
+                        Owner.HoldingItemInfo = null;
+                    }
                     if (itemInfoDictionary.ContainsKey(itemInfos[positionIndex].InventoryItemInfoID))
                     {
                         itemInfoDictionary.Remove(itemInfos[positionIndex].InventoryItemInfoID);
@@ -154,25 +158,6 @@ namespace SimpleMinecraft.Library.PlayerElements
             itemInfos[newPosition] = selectedInfo;
             onItemChange?.Invoke(itemInfos[originPosition]);
             onItemChange?.Invoke(itemInfos[newPosition]);
-        }
-        public bool UseItem(int positionIndex)
-        {
-            if (IsPositionIndexInRange(positionIndex) && itemInfos[positionIndex].Count > 0)
-            {
-                List<IEffectorTarget> effectorTargets = new List<IEffectorTarget>() { Owner };
-                if (itemInfos[positionIndex].Item.Affect(effectorTargets))
-                {
-                    return RemoveItem(positionIndex, 1);
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
         }
     }
 }

@@ -53,11 +53,7 @@ namespace SimpleMinecraft.Unity.Scripts.UIScripts
         {
             if (HotKeyInfo != null && (short)keyCode == HotKeyInfo.HotKeyCode)
             {
-                GetComponent<Selectable>().Select();
-                if (HotKeyInfo.InventoryItemInfo != null && HotKeyInfo.InventoryItemInfo.Item != null)
-                {
-                    HotKeyInfo.InventoryItemInfo.Item.Affect(new List<Library.IEffectorTarget> { PlayerManager.Instance.Player });
-                }
+                PlayerManager.Instance.Player.HoldingItemInfo = HotKeyInfo.InventoryItemInfo;
             }
         }
     }

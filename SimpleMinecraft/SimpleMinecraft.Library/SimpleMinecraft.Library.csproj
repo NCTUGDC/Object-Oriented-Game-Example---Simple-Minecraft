@@ -39,8 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IEffectorTarget.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="ItemElements\BlockMaterial.cs" />
+    <Compile Include="ItemElements\CubeBlockMaterial.cs" />
     <Compile Include="ItemElements\ItemComponent.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerElements\HotKeyInfo.cs" />
