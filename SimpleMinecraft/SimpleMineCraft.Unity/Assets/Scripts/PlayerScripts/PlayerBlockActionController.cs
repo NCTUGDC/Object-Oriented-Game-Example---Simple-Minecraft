@@ -1,8 +1,8 @@
-﻿using SimpleMinecraft.Library.SceneElements;
-using SimpleMinecraft.Library.ItemElements;
+﻿using SimpleMinecraft.Library.ItemElements;
+using SimpleMinecraft.Library.SceneElements;
 using SimpleMinecraft.Unity.Scripts.SystemScripts;
-using UnityEngine;
 using System.Linq;
+using UnityEngine;
 
 namespace SimpleMinecraft.Unity.Scripts.PlayerScripts
 {
