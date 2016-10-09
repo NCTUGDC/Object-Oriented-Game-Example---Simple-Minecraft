@@ -17,9 +17,9 @@ namespace SimpleMinecraft.Unity.Scripts.PlayerScripts
 
         void Update()
         {
-            if(selfRigidbody.position.y < -10)
+            if(selfRigidbody.position.y < SceneManager.Instance.ResetPositionY)
             {
-                selfRigidbody.MovePosition(new Vector3(0, 1.68f, 0));
+                selfRigidbody.MovePosition(SceneManager.Instance.OriginPoint);
             }
         }
 

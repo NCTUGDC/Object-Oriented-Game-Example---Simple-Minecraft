@@ -11,11 +11,13 @@ namespace SimpleMinecraft.Unity.Scripts.SystemScripts
         [SerializeField]
         private CubeBlockController originBlockController;
         private Scene scene;
+        public UnityEngine.Vector3 OriginPoint { get { return Vector3Convertor.Convert(scene.OriginPoint); } }
+        public float ResetPositionY { get { return scene.ResetPositionY; } }
 
         void Awake()
         {
             Instance = this;
-            scene = new Scene();
+            scene = new Scene(new Library.Vector3 { x = 0, y = 1.68f, z = 0 }, -10);
 
             Block originBlock = new CubeBlock(1, new Library.Vector3 { x = 0, y = -0.5f, z = 0 }, false);
             originBlock.BindController(originBlockController);

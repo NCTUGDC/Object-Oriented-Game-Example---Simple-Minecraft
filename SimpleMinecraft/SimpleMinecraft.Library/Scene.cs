@@ -6,10 +6,14 @@ namespace SimpleMinecraft.Library
     public class Scene
     {
         private Dictionary<int, Block> blockDictionary;
+        public Vector3 OriginPoint { get; private set; }
+        public float ResetPositionY { get; private set; }
 
-        public Scene()
+        public Scene(Vector3 originPoint, float resetPositionY)
         {
             blockDictionary = new Dictionary<int, Block>();
+            OriginPoint = originPoint;
+            ResetPositionY = resetPositionY;
         }
 
         public bool ContainsBlock(int blockID)
