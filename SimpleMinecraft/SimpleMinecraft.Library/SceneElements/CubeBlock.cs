@@ -22,12 +22,12 @@
                 return (instantiatePoint, direction, isBreakable, blockPrefab) =>
                 {
                     float sideLength = (float)(blockPrefab as CubeBlock).blockInformation[(byte)CubeBlockInformationCode.SideLength];
-                    return new CubeBlock(sideLength, BlockCenterGenerator(instantiatePoint, direction, blockPrefab), isBreakable);
+                    return new CubeBlock(sideLength, BlockCenterGenerator(instantiatePoint, direction, blockPrefab), isBreakable, Item);
                 };
             }
         }
 
-        public CubeBlock(float sideLength, Vector3 position, bool isBreakable) : base(position, isBreakable)
+        public CubeBlock(float sideLength, Vector3 position, bool isBreakable, Item item) : base(position, isBreakable, item)
         {
             SideLenght = sideLength;
             blockInformation.Add((byte)CubeBlockInformationCode.SideLength, SideLenght);

@@ -54,7 +54,8 @@
     <Compile Include="SceneElements\CubeBlock.cs" />
     <Compile Include="SceneElements\CubeBlockInformationCode.cs" />
     <Compile Include="SceneElements\IBlockController.cs" />
-    <Compile Include="SceneElements\SceneItemEntity.cs" />
+    <Compile Include="SceneElements\IItemEntityController.cs" />
+    <Compile Include="SceneElements\ItemEntity.cs" />
     <Compile Include="Vector3.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

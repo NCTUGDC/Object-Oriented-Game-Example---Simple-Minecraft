@@ -7,6 +7,6 @@ namespace SimpleMinecraft.Library.ItemElements
 {
     public abstract class BlockMaterial : ItemComponent
     {
-        public abstract Block BlockTemplate { get; } 
+        public abstract Block GetBlockTemplate(Item item);
     }
 }

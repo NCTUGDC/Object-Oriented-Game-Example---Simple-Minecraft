@@ -11,6 +11,7 @@ namespace SimpleMinecraft.Unity.Scripts.SystemScripts
         public static PlayerManager Instance { get; private set; }
 
         public Player Player { get; private set; }
+        public UnityEngine.Vector3 PlayerFrontPosition { get; set; }
         public Inventory Inventory { get { return Player.Inventory; } }
         public HotKeySet HotKeySet { get { return Player.HotKeySet; } }
 
@@ -28,10 +29,7 @@ namespace SimpleMinecraft.Unity.Scripts.SystemScripts
         {
             InputManager.Instance.OnKeyDown += ToggleInventoryPanel;
 
-            Item testBlock = new Item(1, "測試方塊", "");
-            testBlock.AddComponent(new CubeBlockMaterial(1));
-
-            Inventory.LoadItem(new InventoryItemInfo(testBlock, 50, 4));
+            Inventory.LoadItem(new InventoryItemInfo(SceneManager.Instance.SupportItem, 50, 4));
         }
 
         private void ToggleInventoryPanel(KeyCode keycode)

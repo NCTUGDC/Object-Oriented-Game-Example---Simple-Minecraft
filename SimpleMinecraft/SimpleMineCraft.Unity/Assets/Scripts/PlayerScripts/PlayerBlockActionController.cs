@@ -24,7 +24,7 @@ namespace SimpleMinecraft.Unity.Scripts.PlayerScripts
                 if(info != null && info.Item != null && info.Item.Components.Any(x => x is BlockMaterial))
                 {
                     BlockMaterial blockMaterial = info.Item.Components.First(x => x is BlockMaterial) as BlockMaterial;
-                    blockPrefab = blockMaterial.BlockTemplate;
+                    blockPrefab = blockMaterial.GetBlockTemplate(info.Item);
                 }
                 else
                 {

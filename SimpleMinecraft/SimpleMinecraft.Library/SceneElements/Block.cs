@@ -9,6 +9,7 @@ namespace SimpleMinecraft.Library.SceneElements
         public int BlockID { get; private set; }
         public Vector3 CenterPosition { get; protected set; }
         public bool IsBreakable { get; private set; }
+        public Item Item { get; private set; }
         protected Dictionary<byte, object> blockInformation;
         private IBlockController blockController;
 
@@ -18,12 +19,13 @@ namespace SimpleMinecraft.Library.SceneElements
         public abstract InstantiateBlockCenterHandler BlockCenterGenerator { get; }
         public abstract InstantiateBlockHandler BlockGenerator { get; }
 
-        protected Block(Vector3 centerPosition, bool isBreakable)
+        protected Block(Vector3 centerPosition, bool isBreakable, Item item)
         {
             blockCounter++;
             BlockID = blockCounter;
             CenterPosition = centerPosition;
             IsBreakable = isBreakable;
+            Item = item;
             blockInformation = new Dictionary<byte, object>();
         }
         public void BindController(IBlockController blockController)

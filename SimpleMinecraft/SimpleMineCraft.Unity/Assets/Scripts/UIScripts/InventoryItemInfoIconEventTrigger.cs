@@ -18,6 +18,9 @@ namespace SimpleMinecraft.Unity.Scripts.UIScripts
         private event Action<InventoryItemInfo> onDisplayInventoryItemInfo;
         public event Action<InventoryItemInfo> OnDisplayInventoryItemInfo { add { onDisplayInventoryItemInfo += value; } remove { onDisplayInventoryItemInfo -= value; } }
 
+        private event Action onDiscardInventoryItemInfo;
+        public event Action OnDiscardInventoryItemInfo { add { onDiscardInventoryItemInfo += value; } remove { onDiscardInventoryItemInfo -= value; } }
+
         protected InventoryItemInfoIcon iconForDisplay;
 
         public override void OnBeginDrag(PointerEventData eventData)
@@ -32,6 +35,13 @@ namespace SimpleMinecraft.Unity.Scripts.UIScripts
             if (onStopDrag != null)
                 onStopDrag.Invoke(eventData);
             EventSystem.current.SetSelectedGameObject(null);
+            if(iconForDisplay == null)
+            {
+                if (onDiscardInventoryItemInfo != null)
+                {
+                    onDiscardInventoryItemInfo.Invoke();
+                }
+            }
         }
         public override void OnDrag(PointerEventData eventData)
         {

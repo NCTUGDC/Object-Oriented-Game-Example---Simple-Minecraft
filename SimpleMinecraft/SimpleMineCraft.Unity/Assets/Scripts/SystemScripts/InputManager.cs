@@ -1,4 +1,4 @@
-﻿using SimpleMinecraft.Unity.SystemScripts;
+﻿using SimpleMinecraft.Unity.ControllerInterfaces;
 using System;
 using System.Collections.Generic;
 using UnityEngine;

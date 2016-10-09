@@ -17,7 +17,8 @@ namespace SimpleMinecraft.Unity.Scripts.PlayerScripts
 
         void Update()
         {
-            if(selfRigidbody.position.y < SceneManager.Instance.ResetPositionY)
+            PlayerManager.Instance.PlayerFrontPosition = transform.localPosition + transform.forward;
+            if (selfRigidbody.position.y < SceneManager.Instance.ResetPositionY)
             {
                 selfRigidbody.MovePosition(SceneManager.Instance.OriginPoint);
             }

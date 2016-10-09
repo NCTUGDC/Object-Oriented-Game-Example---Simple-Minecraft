@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace SimpleMinecraft.Unity.SystemScripts
+namespace SimpleMinecraft.Unity.ControllerInterfaces
 {
     public interface IInputScenario
     {

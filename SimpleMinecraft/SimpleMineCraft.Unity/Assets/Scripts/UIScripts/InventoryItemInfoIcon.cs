@@ -40,6 +40,7 @@ namespace SimpleMinecraft.Unity.Scripts.UIScripts
             eventTrigger.OnStopDrag += OnStopDrag;
             eventTrigger.OnDragging += OnDragging;
             eventTrigger.OnDisplayInventoryItemInfo += OnDisplayInventoryItemInfo;
+            eventTrigger.OnDiscardInventoryItemInfo += OnDiscardInventoryItemInfo;
 
             iconText = transform.Find("IconText").GetComponent<Text>();
             itemCountText = transform.Find("ItemCountText").GetComponent<Text>();
@@ -82,6 +83,16 @@ namespace SimpleMinecraft.Unity.Scripts.UIScripts
             if (inventoryItemInfo != null && inventoryItemInfo.Item != null)
             {
                 PlayerManager.Instance.Inventory.SwapItemInfo(InventoryItemInfo.PositionIndex, inventoryItemInfo.PositionIndex);
+            }
+        }
+        private void OnDiscardInventoryItemInfo()
+        {
+            if(inventoryItemInfo != null && inventoryItemInfo.Item != null)
+            {
+                if(PlayerManager.Instance.Inventory.RemoveItem(inventoryItemInfo.PositionIndex, 1))
+                {
+                    SceneManager.Instance.InstantiateItemEntity(inventoryItemInfo.Item, Vector3Convertor.Convert(PlayerManager.Instance.PlayerFrontPosition));
+                }
             }
         }
     }
