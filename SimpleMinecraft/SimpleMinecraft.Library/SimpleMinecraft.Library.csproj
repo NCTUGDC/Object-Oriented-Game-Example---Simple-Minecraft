@@ -43,6 +43,8 @@
     <Compile Include="Item.cs" />
     <Compile Include="ItemElements\ItemComponent.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="PlayerElements\HotKeyInfo.cs" />
+    <Compile Include="PlayerElements\HotKeySet.cs" />
     <Compile Include="PlayerElements\Inventory.cs" />
     <Compile Include="PlayerElements\InventoryItemInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

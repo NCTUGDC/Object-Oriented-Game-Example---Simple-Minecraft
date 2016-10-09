@@ -43,7 +43,7 @@ namespace SimpleMinecraft.Unity.Scripts.UIScripts
                 float x = 30 + 55 * (i % columnCount);
                 float y = 30 + 55 * (i / columnCount);
                 blockRectTransform.anchoredPosition = new Vector2(x, -y);
-                inventoryItemInfoIcons[i].Initial(new InventoryItemInfo(null, 0, i));
+                inventoryItemInfoIcons[i].InventoryItemInfo = new InventoryItemInfo(null, 0, i);
             }
             for (int i = inventory.Capacity - inventory.HotKeyCapacity; i < inventory.Capacity; i++)
             {
@@ -57,18 +57,18 @@ namespace SimpleMinecraft.Unity.Scripts.UIScripts
                 float x = 30 + 55 * (i % columnCount);
                 float y = 50 + 55 * (i / columnCount);
                 blockRectTransform.anchoredPosition = new Vector2(x, -y);
-                inventoryItemInfoIcons[i].Initial(new InventoryItemInfo(null, 0, i));
+                inventoryItemInfoIcons[i].InventoryItemInfo = new InventoryItemInfo(null, 0, i);
             }
             foreach (var info in inventory.ItemInfos)
             {
-                inventoryItemInfoIcons[info.PositionIndex].Initial(info);
+                inventoryItemInfoIcons[info.PositionIndex].InventoryItemInfo = info;
             }
         }
         private void OnItemChange(InventoryItemInfo info)
         {
             if (PlayerManager.Instance.Inventory.IsPositionIndexInRange(info.PositionIndex))
             {
-                inventoryItemInfoIcons[info.PositionIndex].Initial(info);
+                inventoryItemInfoIcons[info.PositionIndex].InventoryItemInfo = info;
             }
         }
     }

@@ -9,7 +9,26 @@ namespace SimpleMinecraft.Unity.Scripts.UIScripts
     public class InventoryItemInfoIcon : MonoBehaviour
     {        
         private InventoryItemInfoIconEventTrigger eventTrigger;
-        public InventoryItemInfo InventoryItemInfo { get; private set; }
+
+        private InventoryItemInfo inventoryItemInfo;
+        public InventoryItemInfo InventoryItemInfo
+        {
+            get { return inventoryItemInfo; }
+            set
+            {
+                inventoryItemInfo = value;
+                if (InventoryItemInfo != null && InventoryItemInfo.Item != null)
+                {
+                    iconText.text = InventoryItemInfo.Item.ItemName;
+                    itemCountText.text = InventoryItemInfo.Count.ToString();
+                }
+                else
+                {
+                    iconText.text = "";
+                    itemCountText.text = "";
+                }
+            }
+        }
         private Text iconText;
         private Text itemCountText;
         private InventoryItemInfoIcon draggingIcon;
@@ -26,20 +45,6 @@ namespace SimpleMinecraft.Unity.Scripts.UIScripts
             itemCountText = transform.Find("ItemCountText").GetComponent<Text>();
         }
 
-        public void Initial(InventoryItemInfo inventoryItemInfo)
-        {
-            InventoryItemInfo = inventoryItemInfo;
-            if (InventoryItemInfo != null && InventoryItemInfo.Item != null)
-            {
-                iconText.text = InventoryItemInfo.Item.ItemName;
-                itemCountText.text = InventoryItemInfo.Count.ToString();
-            }
-            else
-            {
-                iconText.text = "";
-                itemCountText.text = "";
-            }
-        }
         private void OnStartDrag(PointerEventData eventData)
         {
             if (InventoryItemInfo.Item != null)

@@ -80,6 +80,8 @@
     <Compile Include="Assets\Scripts\SystemScripts\InputManager.cs" />
     <Compile Include="Assets\Scripts\SystemScripts\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\SystemScripts\SceneManager.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\HotKeyInfoIcon.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\HotKeyPanel.cs" />
     <Compile Include="Assets\Scripts\UIScripts\InventoryItemInfoIcon.cs" />
     <Compile Include="Assets\Scripts\UIScripts\InventoryItemInfoIconEventTrigger.cs" />
     <Compile Include="Assets\Scripts\UIScripts\InventoryPanel.cs" />

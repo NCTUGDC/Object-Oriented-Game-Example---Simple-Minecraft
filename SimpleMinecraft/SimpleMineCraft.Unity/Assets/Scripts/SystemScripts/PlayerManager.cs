@@ -9,17 +9,18 @@ namespace SimpleMinecraft.Unity.Scripts.SystemScripts
     {
         public static PlayerManager Instance { get; private set; }
 
-        private Player player;
-        public Inventory Inventory { get { return player.Inventory; } }
+        public Player Player { get; private set; }
+        public Inventory Inventory { get { return Player.Inventory; } }
+        public HotKeySet HotKeySet { get { return Player.HotKeySet; } }
 
+        private Canvas canvas;
         [SerializeField]
         private InventoryPanel inventoryPanelPrefab;
-        private Canvas canvas;
 
         void Awake()
         {
             Instance = this;
-            player = new Player();
+            Player = new Player();
             canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
         }
         void Start()

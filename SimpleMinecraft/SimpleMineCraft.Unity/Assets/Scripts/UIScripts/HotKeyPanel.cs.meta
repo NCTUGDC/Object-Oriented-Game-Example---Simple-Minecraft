@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 01f542db93f8d8046a192b37b06967d5
+timeCreated: 1475998801
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - hotKeyInfoIconPrefab: {fileID: 114000012475325684, guid: 64d14499a383be74094acbd43d5756ae,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
