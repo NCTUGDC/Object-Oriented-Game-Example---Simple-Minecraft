@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SimpleMinecraft.Library.Item" Collapsed="true">
+    <Position X="8.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAoAIAAgACAAAAAAAAAAAAEIAAAACAAAAA=</HashCode>
+      <FileName>Item.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="components" />
+      <Property Name="Components" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="SimpleMinecraft.Library.Player" Collapsed="true">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAQAAAAgABAAAAAQAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Player.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="holdingItemInfo" />
+      <Property Name="HoldingItemInfo" />
+      <Property Name="HotKeySet" />
+      <Property Name="Inventory" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SimpleMinecraft.Library.Scene" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAGYAAAICAAAAAAAAAARAAAAAAEAABAAAEAA=</HashCode>
+      <FileName>Scene.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="blockDictionary" />
+      <Field Name="itemEntityDictionary" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="SimpleMinecraft.Library.ItemElements.BlockMaterial" Collapsed="true">
+    <Position X="10.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ItemElements\BlockMaterial.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleMinecraft.Library.ItemElements.CubeBlockMaterial" Collapsed="true">
+    <Position X="8.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ItemElements\CubeBlockMaterial.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleMinecraft.Library.ItemElements.ItemComponent" Collapsed="true">
+    <Position X="10.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ItemElements\ItemComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleMinecraft.Library.PlayerElements.HotKeyInfo" Collapsed="true">
+    <Position X="1" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAABAAAAAAAAAEABAAA=</HashCode>
+      <FileName>PlayerElements\HotKeyInfo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="InventoryItemInfo" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SimpleMinecraft.Library.PlayerElements.HotKeySet" Collapsed="true">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAACAoAAgAAABAAAAEAAAACAQAAAAAAAEAAAAAI=</HashCode>
+      <FileName>PlayerElements\HotKeySet.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="owner" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="hotKeyInfoByKeyCodeDictionary" />
+      <Field Name="hotKeyInfoDictionary" />
+      <Property Name="HotKeyInfos" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="SimpleMinecraft.Library.PlayerElements.Inventory" Collapsed="true">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAGACACAAAAIEAAAAAECpQAAQCAEEAEAIEARAAA=</HashCode>
+      <FileName>PlayerElements\Inventory.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Owner" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="itemInfoDictionary" />
+      <Field Name="itemInfos" />
+      <Property Name="HotKeyItemInfos" />
+      <Property Name="ItemInfos" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="SimpleMinecraft.Library.PlayerElements.InventoryItemInfo" Collapsed="true">
+    <Position X="8.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQEAAAAAIAAAAAAAIABAAA=</HashCode>
+      <FileName>PlayerElements\InventoryItemInfo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Item" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SimpleMinecraft.Library.SceneElements.Block" Collapsed="true">
+    <Position X="3.75" Y="5.75" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="SimpleMinecraft.Library.SceneElements.Block.InstantiateBlockHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>SceneElements\Block.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="SimpleMinecraft.Library.SceneElements.Block.InstantiateBlockCenterHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>SceneElements\Block.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAEAAEEAAABAAAgQECAAABAAAAQCAAAAAAAA=</HashCode>
+      <FileName>SceneElements\Block.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="blockController" />
+      <Property Name="Item" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SimpleMinecraft.Library.SceneElements.CubeBlock" Collapsed="true">
+    <Position X="3.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAYAAAAAAAAAAAAAAAAAAAABAAAAACAAAAAAAA=</HashCode>
+      <FileName>SceneElements\CubeBlock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleMinecraft.Library.SceneElements.ItemEntity" Collapsed="true">
+    <Position X="4.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAgAAAAAAAEAQBAABAAAQAAAAAAAAA=</HashCode>
+      <FileName>SceneElements\ItemEntity.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="itemEntityController" />
+      <Property Name="Item" />
+    </ShowAsAssociation>
+  </Class>
+  <Struct Name="SimpleMinecraft.Library.Vector3" Collapsed="true">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAYAAAAAAAAAAAAAAAAABgAQAAAAA=</HashCode>
+      <FileName>Vector3.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="SimpleMinecraft.Library.SceneElements.IBlockController" Collapsed="true">
+    <Position X="5.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SceneElements\IBlockController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Block" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="SimpleMinecraft.Library.SceneElements.IItemEntityController" Collapsed="true">
+    <Position X="4.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>SceneElements\IItemEntityController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ItemEntity" />
+    </ShowAsAssociation>
+  </Interface>
+  <Enum Name="SimpleMinecraft.Library.SceneElements.CubeBlockInformationCode" Collapsed="true">
+    <Position X="11.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SceneElements\CubeBlockInformationCode.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Microsoft JhengHei UI" Size="9" />
+</ClassDiagram>

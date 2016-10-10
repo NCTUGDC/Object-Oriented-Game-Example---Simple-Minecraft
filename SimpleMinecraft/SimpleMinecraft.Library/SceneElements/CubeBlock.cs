@@ -2,7 +2,7 @@
 {
     public class CubeBlock : Block
     {
-        public float SideLenght { get; private set; }
+        public float SideLength { get; private set; }
 
         public override InstantiateBlockCenterHandler BlockCenterGenerator
         {
@@ -29,13 +29,13 @@
 
         public CubeBlock(float sideLength, Vector3 position, bool isBreakable, Item item) : base(position, isBreakable, item)
         {
-            SideLenght = sideLength;
-            blockInformation.Add((byte)CubeBlockInformationCode.SideLength, SideLenght);
+            SideLength = sideLength;
+            blockInformation.Add((byte)CubeBlockInformationCode.SideLength, SideLength);
         }
 
         public override Vector3 GetInstantiatePoint(Vector3 normal)
         {
-            return CenterPosition + SideLenght / 2f * normal.Normalized;
+            return CenterPosition + SideLength / 2f * normal.Normalized;
         }
     }
 }

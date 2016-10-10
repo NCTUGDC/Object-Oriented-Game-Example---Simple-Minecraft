@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SimpleMinecraft.Unity.Scripts.PlayerScripts.PlayerBlockActionController" Collapsed="true">
+    <Position X="3.5" Y="4.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAAAACAAAAAAAAAAAAAAQAAAAAAAAAAACAAEAAA=</HashCode>
+      <FileName>Assets\Scripts\PlayerScripts\PlayerBlockActionController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleMinecraft.Unity.Scripts.PlayerScripts.PlayerCollectItemEntityController" Collapsed="true">
+    <Position X="8.75" Y="4.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\PlayerScripts\PlayerCollectItemEntityController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleMinecraft.Unity.Scripts.PlayerScripts.PlayerMoveController" Collapsed="true">
+    <Position X="6.25" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAACCQAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\PlayerScripts\PlayerMoveController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleMinecraft.Unity.Scripts.SceneElementScripts.CubeBlockController" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Assets\Scripts\SceneElementScripts\CubeBlockController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SimpleMinecraft.Unity.Scripts.SceneElementScripts.ItemEntityController" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAIAAAAAAAAABIAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\SceneElementScripts\ItemEntityController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SimpleMinecraft.Unity.Scripts.SystemScripts.InputManager" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgRAAAIAAACAAAAAgAAAAgAQAAIAAAAAQAgAAAAIAEA=</HashCode>
+      <FileName>Assets\Scripts\SystemScripts\InputManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Instance" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SimpleMinecraft.Unity.Scripts.SystemScripts.PlayerManager" Collapsed="true">
+    <Position X="1.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAgAAAiAAAAAACAAACAAAAQAAAAwAAAEA=</HashCode>
+      <FileName>Assets\Scripts\SystemScripts\PlayerManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="inventoryPanelPrefab" />
+      <Property Name="Instance" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SimpleMinecraft.Unity.Scripts.SystemScripts.SceneManager" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAGQAAAAAAAAAAIAAAABEAAAAQEAABACAEEA=</HashCode>
+      <FileName>Assets\Scripts\SystemScripts\SceneManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="originBlockController" />
+      <Field Name="itemEntityGameObjectPrefab" />
+      <Property Name="Instance" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SimpleMinecraft.Unity.Scripts.UIScripts.HotKeyInfoIcon" Collapsed="true">
+    <Position X="3.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABCAIBAAgAAAABAAAAAAQAAAAAgAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\UIScripts\HotKeyInfoIcon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleMinecraft.Unity.Scripts.UIScripts.HotKeyPanel" Collapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAACCAAAAAAAAABAAAAABAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Assets\Scripts\UIScripts\HotKeyPanel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="hotKeyInfoIconPrefab" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="hotKeyInfoIconDictionary" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="SimpleMinecraft.Unity.Scripts.UIScripts.InventoryItemInfoIcon" Collapsed="true">
+    <Position X="1.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAJCAAAQABAAAAAAAAAAAAgAAAAAAAAAAKIEI=</HashCode>
+      <FileName>Assets\Scripts\UIScripts\InventoryItemInfoIcon.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="eventTrigger" />
+      <Field Name="draggingIcon" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SimpleMinecraft.Unity.Scripts.UIScripts.InventoryItemInfoIconEventTrigger" Collapsed="true">
+    <Position X="1.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABIAAACSAAAABAEAAAAAAgACAgAAAwAwAIIAI=</HashCode>
+      <FileName>Assets\Scripts\UIScripts\InventoryItemInfoIconEventTrigger.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="iconForDisplay" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SimpleMinecraft.Unity.Scripts.UIScripts.InventoryPanel" Collapsed="true">
+    <Position X="1.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAEAQCAAAAQEAAAAAAAAAAAAAAAAAAEAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\UIScripts\InventoryPanel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="inventoryItemInfoIconPrefab" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="inventoryItemInfoIcons" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="Microsoft JhengHei UI" Size="9" />
+</ClassDiagram>
